@@ -1,4 +1,4 @@
-** Dev notes **
+## Dev notes
 
 ```
 rails new ghostmapmedia2 --database=postgresql -T --no-rdoc --no-ri
