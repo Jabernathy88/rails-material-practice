@@ -1,24 +1,55 @@
-# README
+** Dev notes **
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+rails new ghostmapmedia2 --database=postgresql -T --no-rdoc --no-ri
 
-Things you may want to cover:
+gem 'materialize-sass', '~> 1.0.0'
 
-* Ruby version
+bundle
 
-* System dependencies
+rename to: app/assets/stylesheets/application.scss
 
-* Configuration
+Css:
+@import "materialize";
 
-* Database creation
+@import "materialize/components/color-variables";
+$primary-color: color("blue", "lighten-2") !default;
+$secondary-color: color("yellow", "base") !default;
+@import 'materialize';
 
-* Database initialization
+Js:
+//= require materialize
 
-* How to run the test suite
+Html:
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
 
-* Services (job queues, cache servers, search engines, etc.)
+rails g controller pages index
 
-* Deployment instructions
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">Logo</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+</nav>
 
-* ...
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script>
+  $( document ).ready(function() {
+    $(".dropdown-trigger").dropdown();
+    console.log( "document loaded" );
+  });
+</script>
+```
